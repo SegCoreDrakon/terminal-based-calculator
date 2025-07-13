@@ -1,0 +1,9 @@
+logs/
+doc/
+build/
+
+*.o
+
+his_count.txt
+*.log
+calculator_terminal_*
