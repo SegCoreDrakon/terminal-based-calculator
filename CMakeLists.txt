@@ -1,7 +1,6 @@
 cmake_minimum_required(VERSION 3.31)
 
 option(USE_CLANG "Use clang instead of gcc" OFF)
-option(SET_DEBUG "Enable debug mode" ON)
 
 set(SET_OPTI "2" CACHE STRING "Optimization level for the project")
 
@@ -46,10 +45,7 @@ target_compile_features(${PROJECT_NAME}_${PROJECT_VERSION_MAJOR}-${PROJECT_VERSI
 )
 
 target_compile_options(${PROJECT_NAME}_${PROJECT_VERSION_MAJOR}-${PROJECT_VERSION_MINOR}-${PROJECT_VERSION_PATCH} PRIVATE
-    -pedantic-errors -Wconversion -Wfloat-conversion -Wall -O${SET_OPTI}
+    -pedantic-errors -Wconversion -Wfloat-conversion -Wall -Werror -O0 -ggdb3
 )
 
-if(SET_DEBUG)
-    target_compile_options(${PROJECT_NAME}_${PROJECT_VERSION_MAJOR}-${PROJECT_VERSION_MINOR}-${PROJECT_VERSION_PATCH} PRIVATE
-        ${CXX_FLAGS} -ggdb3 -O0)
-endif()
+
