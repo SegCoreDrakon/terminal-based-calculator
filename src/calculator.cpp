@@ -75,19 +75,18 @@ void Calculator::m_set_result() {
 void Calculator::m_input_number() {
     debugsys::write_log("m_input_number function called at line:"
                         + std::to_string(__LINE__ - 2));
-
-    double number1 {input()};
-    double number2 {input()};
-
     UI.number_display();
     UI.move(6, 2, false, false);
 
+    double number1 {input()};
     debugsys::write_log("number 1 var set at line:"
                         + std::to_string(__LINE__ - 2));
 
     UI.move(1, 2, true, false);
 
-    debugsys::write_log("number 2 var set");
+    double number2 {input()};
+    debugsys::write_log("number 2 var set at line:"
+                        + std::to_string(__LINE__ - 2));
 
     m_number1 = static_cast<float>(number1);
     m_number2 = static_cast<float>(number2);
