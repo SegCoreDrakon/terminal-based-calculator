@@ -17,7 +17,7 @@ public:
     Calculator();
     ~Calculator();
 
-    int his = 1; ///< history variable
+    int his = 1;
 
     void operation();
 
