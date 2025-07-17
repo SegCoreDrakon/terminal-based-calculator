@@ -7,5 +7,6 @@ build/
 *.log
 
 .kateproject.build
+compile_commands.json
 his_count.txt
 calculator_terminal_*
