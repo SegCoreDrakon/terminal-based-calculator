@@ -41,15 +41,12 @@
 * @version 0.2.0
 */
 
-#include <cstdlib>
-
 #include "../include/calculator.hpp"
 #include "../include/save_system.hpp"
 #include "../include/debug.hpp"
 
 int main() {
   Calculator* calc = new Calculator;
-  malloc(50);
 
   load_history_count();
   debugsys::write_log("loading history at line:"
