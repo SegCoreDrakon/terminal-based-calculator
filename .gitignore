@@ -1,9 +1,11 @@
 logs/
 doc/
 build/
+.cache/
 
 *.o
-
-his_count.txt
 *.log
+
+.kateproject.build
+his_count.txt
 calculator_terminal_*
