@@ -49,6 +49,7 @@ double Calculator::m_multiplication(double val1,  double val2) {
 void Calculator::operation() {
     debugsys::write_log("operation function called at line:"
                         + std::to_string(__LINE__ - 2));
+    UI.clear();
     UI.menu_display();
     UI.move(2, 13, false, false);
     m_handle_choice();
@@ -68,7 +69,6 @@ void Calculator::m_set_result() {
 
     history(m_result,  m_operation_type(m_oprt_type));
     sleep_timer(3);
-    UI.clear();
     operation();
 }
 
@@ -76,19 +76,17 @@ void Calculator::m_input_number() {
     debugsys::write_log("m_input_number function called at line:"
                         + std::to_string(__LINE__ - 2));
 
-    double number1 {};
-    double number2 {};
+    double number1 {input()};
+    double number2 {input()};
 
     UI.number_display();
     UI.move(6, 2, false, false);
 
-    number1 = {input()};
     debugsys::write_log("number 1 var set at line:"
                         + std::to_string(__LINE__ - 2));
 
     UI.move(1, 2, true, false);
 
-    number2 = {input()};
     debugsys::write_log("number 2 var set");
 
     m_number1 = static_cast<float>(number1);
@@ -176,7 +174,7 @@ void Calculator::m_handle_choice() {
                 break;
 
             default:
-                debugsys::write_log("unknow operand at line:"
+                debugsys::write_log("unknow operand set by user at line:"
                                     + std::to_string(__LINE__ - 2));
                 calc_sys.uknown_option();
 
