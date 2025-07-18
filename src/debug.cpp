@@ -1,3 +1,10 @@
+/**
+ * @file debug.hpp
+ * @brief header of the debug system
+ * @author segcoredrakon
+ * @version 0.0.3
+ */
+
 #include <fstream>
 #include <filesystem>
 #include <iostream>
