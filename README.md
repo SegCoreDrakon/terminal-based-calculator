@@ -42,10 +42,7 @@ software as well.
 
 ## **Licence**
 
-The entire project is licensed under the GPL 3.0 or later license. This means you are allowed to 
-share, modify, and distribute the project without limitation, except for the GPL 3.0 restrictions, 
-such as if the project is released in a binary version, you must release the source code under the 
-same license (GPL 3.0 or a later version).
+The entire project is licensed under the GPL 3.0 or later license.
 
 - - -
 # **Small explanation of what the project does**
@@ -106,11 +103,7 @@ package manager
 
 Run `cmake -GNinja -S. -Bbuild` in any terminal you want, make sure you installed make before running the command. `-B` is for the build folder, `-S` for the source (`.` mean source is where the CMakeLists.txt is) and `-G` for the build generator (the project has already Ninja as build generator but type it too to be sure that Ninja is really used for the build generator).
 
-The project have 3 other optional parameters:
-
-`-DSET_DEBUG=ON,OFF` Is for the debug option when the project is compiled.
-
-`-DSET_OPTI=1,2,3` Is for the optimization with GCC or CLANG, number can only be `1`, `2`, or `3`.
+The project have 1 optional parameters:
 
 `-USE_CLANG=ON,OFF` Is for using clang instead of gcc for compiling the project
 
