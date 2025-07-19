@@ -66,6 +66,8 @@ the source files in a table:
 |Source files   |Desc |
 |---------------|-----|
 |calculator.cpp | Does all the computations |
+| calculator_system.cpp | the system of the calculator file used to delete or watch logs, leave the program and if an unknown option is provided |
+| debug.cpp | the debug source file who is used in every debug option to debug the program in case of undefined behavior or any other issue |
 |save_system.cpp | Save the computations, type and  result in a file |
 |terminal_ui.cpp | Simple full ASCII interface for the calculator |
 |main.cpp |The base of the calculator, where the program will be executed |
