@@ -49,15 +49,15 @@ int main() {
   Calculator* calc = new Calculator;
 
   load_history_count();
-  debugsys::write_log("loading history at line:"
+  debugsys::write_log("loading history at line: "
                       + std::to_string(__LINE__ - 2));
 
   calc->operation();
-  debugsys::write_log("callong operation function at line:"
+  debugsys::write_log("callong operation function at line: "
                       + std::to_string(__LINE__ - 2));
 
   save_history_count();
-  debugsys::write_log("saving history at line:"
+  debugsys::write_log("saving history at line: "
                       + std::to_string(__LINE__ - 2));
 
  delete calc;

@@ -47,7 +47,7 @@ double Calculator::m_multiplication(double val1,  double val2) {
 }
 
 void Calculator::operation() {
-    debugsys::write_log("operation function called at line:"
+    debugsys::write_log("operation function called at line: "
                         + std::to_string(__LINE__ - 2));
     UI.clear();
     UI.menu_display();
@@ -56,12 +56,12 @@ void Calculator::operation() {
 }
 
 void Calculator::m_set_result() {
-    debugsys::write_log("m_set_result function called at line:"
+    debugsys::write_log("m_set_result function called at line: "
                         + std::to_string(__LINE__ - 2));
 
     UI.move(1, 3, true, false);
 
-    debugsys::write_log("result of the computation at line:"
+    debugsys::write_log("result of the computation at line: "
                         + std::to_string(__LINE__ - 2));
 
     std::cout << "result  | " << m_result;
@@ -73,31 +73,31 @@ void Calculator::m_set_result() {
 }
 
 void Calculator::m_input_number() {
-    debugsys::write_log("m_input_number function called at line:"
+    debugsys::write_log("m_input_number function called at line: "
                         + std::to_string(__LINE__ - 2));
     UI.number_display();
     UI.move(6, 2, false, false);
 
     double number1 {input()};
-    debugsys::write_log("number 1 var set at line:"
+    debugsys::write_log("number 1 var set at line: "
                         + std::to_string(__LINE__ - 2));
 
     UI.move(1, 2, true, false);
 
     double number2 {input()};
-    debugsys::write_log("number 2 var set at line:"
+    debugsys::write_log("number 2 var set at line: "
                         + std::to_string(__LINE__ - 2));
 
     m_number1 = static_cast<float>(number1);
     m_number2 = static_cast<float>(number2);
 
     debugsys::write_log("number 1 and number 2 var converted to float"
-                        "and set to m_number1 and m_number2, at line:"
+                        "and set to m_number1 and m_number2, at line: "
                         + std::to_string(__LINE__ - 3));
 }
 
 double Calculator::input() {
-    debugsys::write_log("input function called at line:"
+    debugsys::write_log("input function called at line: "
                      + std::to_string(__LINE__ - 2));
     double userinput {};
     std::cout << "number   | ";
@@ -110,7 +110,7 @@ double Calculator::input() {
 }
 
 void Calculator::m_handle_choice() {
-    debugsys::write_log("m_handle_choice function called at line:"
+    debugsys::write_log("m_handle_choice function called at line: "
                         + std::to_string(__LINE__ - 2));
 
     do {
@@ -121,59 +121,59 @@ void Calculator::m_handle_choice() {
         m_oprt_type = oprt;
         debugsys::write_log("var m_operation_type: "
                             + std::to_string(m_oprt_type)
-                            + " at line:"
+                            + " at line: "
                             + std::to_string(__LINE__ - 4));
 
         switch (int(oprt)) {
             case 1:
-                debugsys::write_log("addition performed at line:"
+                debugsys::write_log("addition performed at line: "
                                     + std::to_string(__LINE__ - 2));
                 m_input_number();
                 result(m_addition(m_number1, m_number2));
                 break;
 
             case 2:
-                debugsys::write_log("substraction performed at line:"
+                debugsys::write_log("substraction performed at line: "
                                     + std::to_string(__LINE__ - 2));
                 m_input_number();
                 result(m_subtraction(m_number1, m_number2));
                 break;
 
             case 3:
-                debugsys::write_log("multiplication performed at line:"
+                debugsys::write_log("multiplication performed at line: "
                                     + std::to_string(__LINE__ - 2));
                 m_input_number();
                 result(m_multiplication(m_number1, m_number2));
                 break;
 
             case 4:
-                debugsys::write_log("division performed at line:"
+                debugsys::write_log("division performed at line: "
                                     + std::to_string(__LINE__ - 2));
                 m_input_number();
                 result(m_division(m_number1, m_number2));
                 break;
 
             case 5:
-                debugsys::write_log("checking log at line:"
+                debugsys::write_log("checking log at line: "
                                     + std::to_string(__LINE__ - 2));
                 calc_sys.check_logs();
                 break;
 
             case 6:
-                debugsys::write_log("deleting logs at line:"
+                debugsys::write_log("deleting logs at line: "
                                     + std::to_string(__LINE__ - 2));
                 calc_sys.delete_logs();
                 operation();
                 break;
 
             case 7:
-                debugsys::write_log("leaving the program at line:"
+                debugsys::write_log("leaving the program at line: "
                                     + std::to_string(__LINE__ - 2));
                 calc_sys.leave_program();
                 break;
 
             default:
-                debugsys::write_log("unknow operand set by user at line:"
+                debugsys::write_log("unknow operand set by user at line: "
                                     + std::to_string(__LINE__ - 2));
                 calc_sys.uknown_option();
 
@@ -181,7 +181,7 @@ void Calculator::m_handle_choice() {
                 // when an uncorrect numbed is provided
                 oprt = 0;
                 if (int(oprt) == 0) {
-                    debugsys::write_log("operand set to zero at line:"
+                    debugsys::write_log("operand set to zero at line: "
                                         + std::to_string(__LINE__ - 2));
                     UI.clear();
                     std::cin.clear();
@@ -200,7 +200,7 @@ void Calculator::m_handle_choice() {
  * @see m_set_result()
  */
 std::string Calculator::m_operation_type(int oprt_type) {
-    debugsys::write_log("m_operation_type function called at line:"
+    debugsys::write_log("m_operation_type function called at line: "
                         + std::to_string(__LINE__ - 2));
 
     switch (oprt_type) {
@@ -232,7 +232,7 @@ void sleep_timer(int time) {
 }
 
 void Calculator::result(double computation) {
-    debugsys::write_log("result function called at line:"
+    debugsys::write_log("result function called at line: "
                         + std::to_string(__LINE__ - 2));
     m_result = static_cast<float>(computation);
     m_set_result();
