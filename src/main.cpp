@@ -45,22 +45,18 @@
 #include "../include/save_system.hpp"
 #include "../include/debug.hpp"
 
-int main() {
-  Calculator* calc = new Calculator;
+int main(int arg, char* args[]) {
+  Calculator calc;
 
   load_history_count();
-  debugsys::write_log("loading history at line: "
-                      + std::to_string(__LINE__ - 2));
+  debugsys::write_log("history count loaded");
 
-  calc->operation();
-  debugsys::write_log("callong operation function at line: "
-                      + std::to_string(__LINE__ - 2));
+  debugsys::write_log("load calculator");
+  calc.operation();
+  debugsys::write_log("calculator ended");
 
   save_history_count();
-  debugsys::write_log("saving history at line: "
-                      + std::to_string(__LINE__ - 2));
-
- delete calc;
+  debugsys::write_log("history count saved");
 
   return 0;
 }
