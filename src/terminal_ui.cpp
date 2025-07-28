@@ -12,8 +12,8 @@
 
 #include "../include/terminal_ui.hpp"
 
-UI::UI() {};
-UI::~UI() {};
+UI::UI() = default;
+UI::~UI() = default;
 
 void UI::menu_display() const {
     std::cout << "+=================================+\n";
