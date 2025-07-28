@@ -17,7 +17,7 @@ else()
 endif()
 
 project(terminal_calculator
-    VERSION 0.1.0
+    VERSION 0.1.3
     LANGUAGES CXX
     DESCRIPTION "A terminal-only calculator with ASCII UI interface."
 )
@@ -36,12 +36,12 @@ target_include_directories(${PROJECT_NAME}_${PROJECT_VERSION_MAJOR}-${PROJECT_VE
 )
 
 set_target_properties(${PROJECT_NAME}_${PROJECT_VERSION_MAJOR}-${PROJECT_VERSION_MINOR}-${PROJECT_VERSION_PATCH} PROPERTIES
-    CXX_STANDARD 17
+    CXX_STANDARD 20
     CXX_STANDARD_REQUIRED ON
 )
 
 target_compile_features(${PROJECT_NAME}_${PROJECT_VERSION_MAJOR}-${PROJECT_VERSION_MINOR}-${PROJECT_VERSION_PATCH} PRIVATE
-    cxx_std_17
+    cxx_std_20
 )
 
 target_compile_options(${PROJECT_NAME}_${PROJECT_VERSION_MAJOR}-${PROJECT_VERSION_MINOR}-${PROJECT_VERSION_PATCH} PRIVATE
