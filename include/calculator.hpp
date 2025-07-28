@@ -29,8 +29,8 @@ private:
 
     /**
      * @details
-     * remember the computation the
-     * user choose and display it in string
+     * remember the computation of the
+     * user and display it in string
      * version in history function
      * @see m_set_result() for where the var go
      */
