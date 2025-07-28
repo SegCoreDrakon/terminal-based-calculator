@@ -1,26 +1,28 @@
 /**
- * @file debug.hpp
- * @brief header of the debug system
+ * @file debug.cpp
+ * @brief debug system, used for debugging the program
  * @author segcoredrakon
- * @version 0.0.3
+ * @version 0.0.8
  */
 
 #include <fstream>
 #include <filesystem>
 #include <iostream>
+
 #include "../include/debug.hpp"
 
 namespace debugsys {
-    void write_log(std::string data) {
+    void write_log(const std::string_view& message,
+                   const std::source_location location)
+    {
         std::string fdebug;
         if (!std::filesystem::exists("logs/debug.log")) {
-             fdebug = "===========[ DEBUG FILE FOR DEBUG PURPOSE ]===========";
+                fdebug = "===========[ DEBUG FILE FOR DEBUG PURPOSE ]===========";
         }
         std::ofstream f("logs/debug.log", std::ios::app);
         if (!std::filesystem::exists("logs/")) {
             std::filesystem::create_directories("logs/");
         }
-
 
         if (!f) {
             std::cerr << "CAUTION: cannot open the debug file\n";
@@ -30,10 +32,17 @@ namespace debugsys {
             f << fdebug << "\n\n";
         }
 
-        f << data << '\n';
+        f << "file: "
+          << location.file_name() << " ("
+          << location.line() << ':'
+          << location.column() << ") in function `"
+          << location.function_name() << "` custom message: "
+          << message << '\n';
+
         f.flush();
         f.close();
     }
+
 }
 
 
