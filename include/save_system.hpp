@@ -14,6 +14,6 @@
 
 void save_history_count();
 void load_history_count();
-void history(float val, std::string oprt);
+void history(float val, const std::string& oprt);
 void write_log(std::string data);
 #endif // SAVE_SYSTEM_HPP
