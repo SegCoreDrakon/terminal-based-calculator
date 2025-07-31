@@ -7,8 +7,6 @@
  */
 
 #include <iostream>
-#include <thread>
-#include <chrono>
 #include <string>
 
 #include "../include/calculator.hpp"
@@ -62,7 +60,7 @@ void Calculator::m_set_result() {
     std::cout.flush();
 
     history(m_result,  m_operation_type(m_oprt_type));
-    sleep_timer(3);
+    calc_sys.sleep_timer(3);
     operation();
 }
 
@@ -109,7 +107,8 @@ void Calculator::m_handle_choice() {
 
         // we use a var to display the type in the history
         m_oprt_type = oprt;
-        debugsys::write_log();
+        debugsys::write_log("m_port_type set to: "
+                            + std::to_string(m_oprt_type));
 
         switch (int(oprt)) {
             case 1:
@@ -201,11 +200,6 @@ std::string Calculator::m_operation_type(int oprt_type) {
         return "ERROR";
         break;
     }
-}
-
-// used for making timer without write thread function
-void sleep_timer(int time) {
-    std::this_thread::sleep_for(std::chrono::seconds(time));
 }
 
 void Calculator::result(double computation) {
