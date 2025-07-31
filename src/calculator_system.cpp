@@ -8,11 +8,12 @@
 
 #include <filesystem>
 #include <iostream>
+#include <thread>
+#include <chrono>
 
 #include "../include/calculator_system.hpp"
 #include "../include/save_system.hpp"
 #include "../include/terminal_ui.hpp"
-#include "../include/calculator.hpp"
 
 UI ui;
 void CalculatorSystem::delete_logs() const {
@@ -20,8 +21,9 @@ void CalculatorSystem::delete_logs() const {
     ui.move(2, 3, false, false);
     std::cout << "removing the logs folder...";
     std::cout.flush();
-    std::filesystem::remove_all("logs/");
-    sleep_timer(2);
+    std::filesystem::remove("logs/history.log");
+    std::filesystem::remove("logs/his_count.txt");
+    sleep_timer(1);
     ui.move(0, 3, true, false);
     ui.move(1, 32, false, true);
     std::cout << "     logs folder removed      ";
@@ -54,4 +56,8 @@ void CalculatorSystem::uknown_option() const {
     sleep_timer(3);
     std::cin.ignore();
     std::cin.clear();
+}
+
+void CalculatorSystem::sleep_timer(int sec) const {
+    std::this_thread::sleep_for(std::chrono::seconds(sec));
 }
