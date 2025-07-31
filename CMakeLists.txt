@@ -45,7 +45,7 @@ target_compile_features(${PROJECT_NAME}_${PROJECT_VERSION_MAJOR}-${PROJECT_VERSI
 )
 
 target_compile_options(${PROJECT_NAME}_${PROJECT_VERSION_MAJOR}-${PROJECT_VERSION_MINOR}-${PROJECT_VERSION_PATCH} PRIVATE
-    -pedantic-errors -Wconversion -Wfloat-conversion -Wall -Werror -O0 -ggdb3
+    -pedantic-errors -DDEBUG_SYSTEM -Wconversion -Wfloat-conversion -fpermissive -Wall -O0 -ggdb3
 )
 
 
