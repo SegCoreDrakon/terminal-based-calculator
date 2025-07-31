@@ -13,14 +13,6 @@
 #define CALCULATOR_HPP
 
 class Calculator {
-public:
-    Calculator();
-    ~Calculator();
-
-    int his = 1;
-
-    void operation();
-
 private:
     double m_number1;
     double m_number2;
@@ -94,16 +86,21 @@ private:
      */
 
     void m_handle_choice();
-
     void m_set_result();
     void m_input_number();
+    void result(double computation);
     double input();
 
     std::string m_operation_type(int oprt_type);
 
-    void result(double computation);
+public:
+    Calculator();
+    ~Calculator();
+
+    int his = 1;
+
+    void operation();
 };
-void sleep_timer(int time);
 
 #endif // CALCULATOR_HPP
 
