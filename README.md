@@ -1,6 +1,5 @@
 # **TERMINAL CALCULATOR**
 
-- - -
 # **SOMMARY**
 
 - [introduction](#introduction)
@@ -42,7 +41,7 @@ software as well.
 
 ## **Licence**
 
-The entire project is licensed under the GPL 3.0 or later license.
+The entire project is licensed under the MIT license.
 
 - - -
 # **Small explanation of what the project does**
