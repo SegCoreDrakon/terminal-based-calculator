@@ -18,7 +18,9 @@ public:
   void check_logs() const;
   void leave_program() const;
   void uknown_option() const;
+  void sleep_timer(int sec) const;
 };
+
 
 #endif // CALCULATOR_SYSTEM
 
