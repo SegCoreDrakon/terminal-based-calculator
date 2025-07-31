@@ -6,8 +6,6 @@
  * basic computation of a program. The 4 calculations of the calculator are following: addition,
  * substraction, multiplication and division.
  *
- *
- *
  * @section features_section Features
  * - Addition, substraction, multiplication and division
  * - documented code with Doxygen
@@ -34,18 +32,18 @@
  */
 
 /**
-* @file main.cpp
-* @brief the base of the program
-* @author SegCoreDrakon
-* @date 2025-02-01
-* @version 0.2.0
-*/
+ * @file main.cpp
+ * @brief the base of the program
+ * @author SegCoreDrakon
+ * @date 2025-02-01
+ * @version 0.2.0
+ */
 
 #include "../include/calculator.hpp"
 #include "../include/save_system.hpp"
 #include "../include/debug.hpp"
 
-int main(int arg, char* args[]) {
+int main(int arg, char* argv[]) {
   Calculator calc;
 
   load_history_count();
