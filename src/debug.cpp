@@ -5,44 +5,54 @@
  * @version 0.0.8
  */
 
-#include <fstream>
-#include <filesystem>
-#include <iostream>
+#ifdef DEBUG_SYSTEM
+    #include <fstream>
+    #include <filesystem>
+    #include <iostream>
 
-#include "../include/debug.hpp"
+    #include "../include/debug.hpp"
+    namespace debugsys {
+        void write_log(const std::string_view& message = "no message",
+                       const std::source_location location =
+                       std::source_location::current())
+        {
+            std::string fdebug;
+            if (!std::filesystem::exists("logs/debug.log")) {
+                    fdebug = "===========[ DEBUG FILE FOR DEBUG PURPOSE ]===========";
+            }
+            std::ofstream f("logs/debug.log", std::ios::app);
+            if (!std::filesystem::exists("logs/")) {
+                std::filesystem::create_directories("logs/");
+            }
 
-namespace debugsys {
-    void write_log(const std::string_view& message,
-                   const std::source_location location)
-    {
-        std::string fdebug;
-        if (!std::filesystem::exists("logs/debug.log")) {
-                fdebug = "===========[ DEBUG FILE FOR DEBUG PURPOSE ]===========";
+            if (!f) {
+                std::cerr << "CAUTION: cannot open the debug file\n";
+                return;
+            }
+            if (!(fdebug == "")) {
+                f << fdebug << "\n\n";
+            }
+
+            f << "file: "
+            << location.file_name() << " ("
+            << location.line() << ':'
+            << location.column() << ") in function `"
+            << location.function_name() << "` custom message: "
+            << message << '\n';
+
+            f.flush();
+            f.close();
         }
-        std::ofstream f("logs/debug.log", std::ios::app);
-        if (!std::filesystem::exists("logs/")) {
-            std::filesystem::create_directories("logs/");
-        }
-
-        if (!f) {
-            std::cerr << "CAUTION: cannot open the debug file\n";
-            return;
-        }
-        if (!(fdebug == "")) {
-            f << fdebug << "\n\n";
-        }
-
-        f << "file: "
-          << location.file_name() << " ("
-          << location.line() << ':'
-          << location.column() << ") in function `"
-          << location.function_name() << "` custom message: "
-          << message << '\n';
-
-        f.flush();
-        f.close();
     }
+#else
+    #include <string_view>
+    #include <source_location>
+    namespace debugsys {
+        void write_log(const std::string_view& message = "no message",
+                       const std::source_location location =
+                       std::source_location::current()){
+            return;
 
-}
-
-
+        }
+    }
+#endif // DEBUG_SYSTEM
