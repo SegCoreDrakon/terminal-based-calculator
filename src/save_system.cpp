@@ -49,7 +49,7 @@ void load_history_count() {
  * don't add `..` for the path,
  * else the program will not recognize the logs path anymore
  */
-void history(float val, std::string oprt) {
+void history(float val, const std::string& oprt) {
     std::ofstream file("logs/history.log", std::ios::app);
     if (!std::filesystem::exists("logs/")) {
         std::filesystem::create_directories("logs/");
